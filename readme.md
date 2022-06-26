@@ -37,6 +37,8 @@ This architecture requires no real configuration and does not require the user t
 
 This should go without saying, but the web server should listen on port 443. (Flask defaults to port 5000.)
 
+One clear limitation of this app is its inability to spoof a website for which you do not have the certificate and public key. Doing so would violate TLS and require some responsible disclosure. This is really not the intention of this PoC.
+
 Flask should not be used in production. One might leverage Express (NodeJS) instead. If Flask must be used, hide it behind Nginx (not covered here).
 
 Take care to rigorously match the request and response data. There should be no evidence of this middleware. At the time of writing, this application does leave artifacts in the response; this should never happen in a production version of this system.
